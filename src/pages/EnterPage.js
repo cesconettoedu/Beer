@@ -8,9 +8,9 @@ function EnterPage() {
   return (
     <Wrapper>
       <div className="enter">
-        <div> Ed's Beer List</div>
-        <div>
+        <h1 className="myapp"> Ed's Beer List</h1>
           <Logo/>
+        <div>
           <Link to="/home">
             <div className="btn">ENTER</div>
           </Link>
@@ -28,6 +28,11 @@ const Wrapper = styled.main`
   align-items: center;
   flex-direction: column;
   text-align: center;
+}
+
+.myapp{
+  padding: 67px;
+  margin: 0;
 }
 `
 export default EnterPage

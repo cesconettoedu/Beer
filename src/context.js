@@ -19,7 +19,7 @@ export const useBeers = () => useContext(BeerContext)
 
 const useProvideBeerContext = () => {
   const [beers, setBeers] = useState([]);
-  
+  const [beer, setBeer] = useState({})
   
   ///////////////////to get all beers
   async function listAllBeers() {
@@ -30,6 +30,18 @@ const useProvideBeerContext = () => {
     } catch (err) {
       console.error(err.message);
     }
+  }
+
+
+  ////////////////////get single beer
+  async function getBeer(id) {
+    try {
+    const result = await axios.get(`http://localhost:8080/api/beers/${id}`)
+    setBeer(result.data[0])
+    } catch (err) {
+    console.error(err.message);
+    }
+    
   }
 
 
@@ -58,6 +70,6 @@ const useProvideBeerContext = () => {
 
 
 
-return { beers, listAllBeers, deleteBeer }
+return { beers, beer, listAllBeers, deleteBeer, getBeer }
 
 }

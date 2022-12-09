@@ -128,7 +128,7 @@ const Wrapper = styled.main`
 }
 
 .beerCard:hover {
-  transform: scale(1.05);
+  
   box-shadow: 5px 5px 5px rgba(233, 233, 233, 0.6);
 }
 

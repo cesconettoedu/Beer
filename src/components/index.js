@@ -5,6 +5,8 @@ import MenuButton from "./MenuButton"
 import SingleBeers from "./SingleBeers"
 import Card from "./Card"
 import AddBeer from "./AddBeer"
+import Form from "./Form"
+import Search from "./Search"
 
 export {
   Logo,
@@ -13,5 +15,8 @@ export {
   MenuButton,
   SingleBeers,
   Card,
-  AddBeer
+  AddBeer,
+  Form,
+  Search
+
 }

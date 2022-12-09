@@ -33,9 +33,7 @@ function MenuButton () {
 }
 
 const Wrapper = styled.main`
-* {
-  font-family: "Roboto";
-}
+
 
 .container-Home {
   display: flex;
@@ -59,7 +57,7 @@ const Wrapper = styled.main`
   background: url("bgCardHome.jpg") center;
   color: #ffffff;
   border-radius: 8px;
-  padding: 0px 18px;
+  padding-top: 5px;
   width: 244px;
   transition: 0.5s ease;
   overflow: hidden;

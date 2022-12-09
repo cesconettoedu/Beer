@@ -2,46 +2,47 @@ import React from 'react'
 import { Card, Navbar } from '../components';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect} from "react";
-import axios from "axios";
 import { BsTrash, BsFillPencilFill } from 'react-icons/bs';
 import styled from 'styled-components'
 import { useBeers } from '../context';
+import Form from './Form';
 
 
 function SingleBeers(props) {
-  const [beer, setBeer] = useState({})
+  
   let { id } = useParams();
-  const { deleteBeer, listAllBeers } = useBeers();
+  const { deleteBeer, listAllBeers, getBeer, beer } = useBeers();
   const navigate = useNavigate();
+  const [editBreja, setEditBreja] = useState(false)
   
   
-  async function getBeer() {
-    try {
-    const result = await axios.get(`http://localhost:8080/api/beers/${id}`)
-    setBeer(result.data[0])
-    } catch (err) {
-    console.error(err.message);
-    }
-    
-  }
-
-  function handleClik(id) {
+ 
+  function toggleDelete(id) {
     deleteBeer(id)
-    navigate('/all')
     listAllBeers()
+    navigate('/all')
   }
+  const toggleEdit = (id) => {
+    setEditBreja(true);
+    getBeer(id);
+    
+  };
+
+
 
   useEffect(() => {
-    getBeer()
+    getBeer(id)
     listAllBeers() 
     }, []);
 
   return (
     <Wrapper>
+    
     <Navbar />
-    <div>
-      <h1>Single Beer</h1>
-        
+    
+    {!editBreja &&
+     <>
+     <h1 className='title'>Single Beer</h1>
         <Card 
           key={beer.id} 
           id={beer.id}
@@ -50,11 +51,18 @@ function SingleBeers(props) {
           note={beer.note}
         />
         <div className='options'>
-          <BsTrash className='icon' onClick={() => handleClik(id) }/>
-          <BsFillPencilFill className='icon' />
-        </div>   
-     
-    </div>
+          <BsTrash className='icon' onClick={() => toggleDelete(id) }/>
+          <BsFillPencilFill className='icon'  onClick={() => toggleEdit(id) }/>
+        </div>
+      </>
+    }
+    {editBreja &&
+        <>
+          <h2 className='title'>Edit Beer:</h2>
+          <Form edit={true} id={beer.id}/>
+        </>
+      }   
+        
     </Wrapper>
   )
 }

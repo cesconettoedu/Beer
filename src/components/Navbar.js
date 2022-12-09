@@ -57,7 +57,7 @@ const Wrapper = styled.nav`
   background: var(--clr-primary-800);
   box-shadow: var(--shadow-1);
   font-family: 'Delight Coffee', sans-serif;
-  
+  margin-bottom: 10px;
 }
 
 .nav-header {
