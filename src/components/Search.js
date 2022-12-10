@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import useDebounce from '../hooks/useDebounce';
 import axios from "axios";
 import Card from "./Card"
 
+
 function Search() {
-  const [inputSearch, setInputSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [getAll, setGetAll] = useState([]);
-  const debouncedValue = useDebounce(inputSearch, 500);
 
   
   async function AllBeers(parameter) {
     try {
       const res = await axios.get(`http://localhost:8080/api/beers/all`);
       setGetAll(res.data);
-      const filteredData = res.data.filter(app => app.name.includes(parameter))
-      setSearchData(filteredData);
+      setSearchData(res.data);
     } catch (err) {
       console.error(err.message);
     }
@@ -24,13 +21,19 @@ function Search() {
   
 
   const handleChange = (event) => {
-    setInputSearch(event.target.value.charAt(0).toUpperCase());
+    if(event.target.value === '') {
+      setSearchData(getAll)
+    } else {
+      const filteredData = getAll.filter(app => app.name.toUpperCase().includes(event.target.value.toUpperCase()))
+      setSearchData(filteredData);
+    }
   };
 
 
   useEffect(() => {
-    inputSearch === '' ? setSearchData([]) : AllBeers(inputSearch);
-  }, [debouncedValue])
+    AllBeers('')
+
+  }, [])
 
 
   return (
@@ -45,18 +48,19 @@ function Search() {
             image={breja.image}
             note={breja.note}
             />
+          )
+          })
+        }
 
-            )
-
-          })}
-        <span>Search by name: </span>
-        <input
-          id="parameter"
-          type="text"
-          onChange={handleChange}
-          placeholder="Beer name"
-        ></input>
-
+        <div className='search'>  
+          <span>Search by name: </span>
+          <input
+            id="parameter"
+            type="text"
+            onChange={handleChange}
+            placeholder="Beer name"
+          ></input>
+        </div>
     </Wrapper>
   )
 }
@@ -64,6 +68,18 @@ const Wrapper = styled.main`
 input{
   height:31px;
   font-size: 11pt;
+}
+.search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;
+  z-index:99999;
+  background: var(--clr-primary-400);
 }
 `
 export default Search

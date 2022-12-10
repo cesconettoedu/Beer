@@ -64,15 +64,11 @@ const Wrapper = styled.main`
   grid-template-columns: 300px;
   grid-template-rows: 230px 150px 85px;
   grid-template-areas: "image" "text" "stats";
-  
-  
   border-radius: 18px;
   background: linear-gradient(90deg, #ff9500 0%, #d5cb0f 100%);
-
   box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
   text-align: center;
   border-radius: 10px;
-
   transition: 0.5s ease;
 }
 
@@ -90,7 +86,6 @@ const Wrapper = styled.main`
 
 .beercard-image {
   grid-area: image;
-  
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
@@ -128,7 +123,6 @@ const Wrapper = styled.main`
 }
 
 .beerCard:hover {
-  
   box-shadow: 5px 5px 5px rgba(233, 233, 233, 0.6);
 }
 
