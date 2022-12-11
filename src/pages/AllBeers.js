@@ -19,7 +19,7 @@ function AllBeers(props) {
     <Wrapper>
       <Navbar />
       <div className='four'>
-      <Search />
+        <Search />
       </div> 
     </Wrapper>
   )
@@ -27,6 +27,7 @@ function AllBeers(props) {
 const Wrapper = styled.main`
 .beerCard:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .four{

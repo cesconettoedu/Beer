@@ -51,6 +51,7 @@ function Card({ id, name, image, note }) {
 const Wrapper = styled.main`
           
 .beerCardFull {
+  width: 110%;
   height: 506px;
   display: flex;
   align-items: center;

@@ -38,19 +38,26 @@ function Search() {
 
   return (
     <Wrapper>
-        {searchData.length > 0 &&
-          searchData.map((breja) => {
-            return(
-          <Card
-            key={breja.id} 
-            id={breja.id}
-            name={breja.name} 
-            image={breja.image}
-            note={breja.note}
-            />
-          )
-          })
-        }
+      <div className='box'>
+        <div className="parent-flex">
+          {searchData.length > 0 &&
+            searchData.map((breja) => {
+              return(
+              <div className="flex-item">   
+              <Card
+                key={breja.id} 
+                id={breja.id}
+                name={breja.name} 
+                image={breja.image}
+                note={breja.note}
+                />
+              </div>
+
+            )
+            })
+          }
+        </div>
+      </div>
 
         <div className='search'>  
           <span>Search by name: </span>
@@ -81,5 +88,28 @@ input{
   z-index:99999;
   background: var(--clr-primary-400);
 }
+
+.box{
+  margin-left: 20%;
+  width: 49vh;
+  padding: 7px;
+}
+ 
+.parent-flex {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+width: 160%;
+justify-content: space-around;
+}
+
+.flex-item {
+  height: 100px;
+  flex: 0 0 135px;
+  margin: 13em -10px;
+  text-align: center;
+ }
+ 
+
 `
 export default Search
