@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-
-
 import { useNavigate } from "react-router-dom";
 
 
@@ -9,17 +7,18 @@ import { useNavigate } from "react-router-dom";
 function Card({ id, name, image, note }) {
   
   const navigate = useNavigate();
-
+  const [size, setSize] = useState([])
 
   const btnSingleBeer = (id) => {
     navigate(`/beers/${id}`)
+    setSize ('center')
   }
 
   return (
     
       <Wrapper>
         <div className="beerCardFull" key={id} >
-          <div className="beerCard" onClick={() => btnSingleBeer(id)}>
+          <div className='beerCard' onClick={() => btnSingleBeer(id)}>
 
             <div className="beercard-image">
               <img
@@ -38,7 +37,7 @@ function Card({ id, name, image, note }) {
               </div>
             </div>  
                 
-            <div className="beercard-like" > 
+            <div className='beercard-like' > 
               5 beers
             </div> 
           </div>
@@ -51,7 +50,6 @@ function Card({ id, name, image, note }) {
 const Wrapper = styled.main`
           
 .beerCardFull {
-  width: 110%;
   height: 506px;
   display: flex;
   align-items: center;
@@ -127,7 +125,9 @@ const Wrapper = styled.main`
   box-shadow: 5px 5px 5px rgba(233, 233, 233, 0.6);
 }
 
-          
+.size {
+  min-width: 0;
+}         
 `
           
 export default Card

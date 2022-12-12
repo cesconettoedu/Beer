@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBeers } from '../context';
+import Stars from './Stars';
 
 function Form(props) {
   const [name, setName] = useState("");
@@ -40,7 +41,7 @@ function Form(props) {
     try {      
       axios.post(`http://localhost:8080/api/beers/add`, body)
        .then((response) => {
-         alert("Contact Added")
+         alert("Beer Added")
          listAllBeers()
          navigate('/all')
         
@@ -104,7 +105,7 @@ function Form(props) {
           </div>  
               
           <div className="beercard-like" > 
-            5 beers
+            <Stars />
           </div> 
         </div>
           <button className='include' type="submit">Submit</button>
@@ -172,8 +173,6 @@ const Wrapper = styled.main`
   justify-content: space-around;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
- 
-  /* background-image: url("/public/beerBg.jpg"); */
   background: linear-gradient(90deg, #e6af49 0%, #d5cb0f 100%);
   align-items: center;
 }
