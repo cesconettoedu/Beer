@@ -30,10 +30,12 @@ const Wrapper = styled.main`
   cursor: pointer;
 }
 
-.four{
-
+.beerCard {
+  width: 90%;
 }
-
+.beercard-like {
+  width: 90%;
+}
 `
 
 export default AllBeers

@@ -7,6 +7,7 @@ import Card from "./Card"
 import AddBeer from "./AddBeer"
 import Form from "./Form"
 import Search from "./Search"
+import Stars from "./Stars"
 
 export {
   Logo,
@@ -17,6 +18,7 @@ export {
   Card,
   AddBeer,
   Form,
-  Search
+  Search,
+  Stars
 
 }

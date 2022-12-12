@@ -101,12 +101,10 @@ flex-wrap: wrap;
 justify-content: center;
 width: 160%;
 justify-content: space-around;
+padding-bottom: 10%;
 }
 
 .flex-item {
-  height: 100px;
-  flex: 0 0 135px;
-  margin: 13em -10px;
   text-align: center;
  }
  
