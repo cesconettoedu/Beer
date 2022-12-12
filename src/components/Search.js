@@ -101,10 +101,13 @@ flex-wrap: wrap;
 justify-content: center;
 width: 160%;
 justify-content: space-around;
-padding-bottom: 10%;
+padding-bottom: 25%;
 }
 
 .flex-item {
+  height: 29rem;
+  flex: 0 0 135px;
+  margin: 1em -10px;
   text-align: center;
  }
  
