@@ -50,6 +50,7 @@ function Search() {
                 name={breja.name} 
                 image={breja.image}
                 note={breja.note}
+                star={breja.star}
                 />
               </div>
 

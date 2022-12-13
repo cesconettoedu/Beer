@@ -9,6 +9,7 @@ function Form(props) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [note, setNote] = useState("");
+  const [star, setStar] = useState("");
   const [editBreja, setEditBreja] = useState(props.edit)
   const { listAllBeers, getBeer, beer } = useBeers();
   
@@ -22,9 +23,11 @@ function Form(props) {
       id,
       name,
       image,
-      note
+      note,
+      star
+      
     }
-
+    console.log(Stars.star);  
     if(editBreja){
       try {
         axios.put(`http://localhost:8080/api/beers/${props.id}`,body
@@ -38,7 +41,8 @@ function Form(props) {
       }
     } else {
 
-    try {      
+    try {    
+      console.log(body);  
       axios.post(`http://localhost:8080/api/beers/add`, body)
        .then((response) => {
          alert("Beer Added")
@@ -53,11 +57,13 @@ function Form(props) {
   }
 
     useEffect(() => {
+  
       if (editBreja){
         getBeer(props.id)
         setImage(beer.image)
         setName(beer.name)
         setNote(beer.note)
+       
         
       }
       }, []);
@@ -105,7 +111,9 @@ function Form(props) {
           </div>  
               
           <div className="beercard-like" > 
-            <Stars />
+            <Stars star={beer.star}
+              
+            />
           </div> 
         </div>
           <button className='include' type="submit">Submit</button>

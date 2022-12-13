@@ -26,7 +26,6 @@ const useProvideBeerContext = () => {
     try {
       const res = await axios.get(`http://localhost:8080/api/beers/all`);
       setBeers(res.data);
-    
     } catch (err) {
       console.error(err.message);
     }

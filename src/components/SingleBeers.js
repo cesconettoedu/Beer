@@ -49,6 +49,7 @@ function SingleBeers(props) {
           name={beer.name} 
           image={beer.image}
           note={beer.note}
+          star={beer.star}
         />
         <div className='options'>
           <BsTrash className='icon' onClick={() => toggleDelete(id) }/>

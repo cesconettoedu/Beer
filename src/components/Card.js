@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from "react-router-dom";
+import Stars from './Stars';
 
 
 
-function Card({ id, name, image, note }) {
-  
+function Card({ id, name, image, note, star }) {
   const navigate = useNavigate();
   const [size, setSize] = useState([])
 
@@ -38,7 +38,7 @@ function Card({ id, name, image, note }) {
             </div>  
                 
             <div className='beercard-like' > 
-              5 beers
+              <Stars star={star}/>
             </div> 
           </div>
         </div>
@@ -127,7 +127,12 @@ const Wrapper = styled.main`
 
 .size {
   min-width: 0;
-}         
+}   
+
+.mug {
+  width: 40px;
+  height: 55px;
+}
 `
           
 export default Card

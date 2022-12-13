@@ -1,59 +1,114 @@
-import styled from 'styled-components'
-import mug from '../assets/beerIconBlack.png'
+import styled from "styled-components";
+import mugEmpty from "../assets/beerIconBlack.png";
+import mugFull from "../assets/beerIconFull.png";
+import React, { useState, useEffect } from "react";
+
+function Stars(props) {
+  const [star, setStar] = useState(0);
+  const [mug1, setMug1] = useState(mugEmpty);
+  const [mug2, setMug2] = useState(mugEmpty);
+  const [mug3, setMug3] = useState(mugEmpty);
+  const [mug4, setMug4] = useState(mugEmpty);
+  const [mug5, setMug5] = useState(mugEmpty);
+
+  const StarClick = (id) => {
+    switch (id) {
+      case 1:
+        if (mug1 === mugEmpty) {
+          setMug1(mugFull);
+          setStar(id);
+        } else {
+          setMug1(mugEmpty);
+          setMug2(mugEmpty);
+          setMug3(mugEmpty);
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        }
+        break;
+      case 2:
+        if (mug2 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setStar(id);
+        } else {
+          setMug3(mugEmpty);
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        }
+        break;
+      case 3:
+        if (mug3 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setMug3(mugFull);
+          setStar(id);
+        } else {
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        }
+        break;
+      case 4:
+        if (mug4 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setMug3(mugFull);
+          setMug4(mugFull);
+          setStar(id);
+        } else {
+          setMug5(mugEmpty);
+        }
+        break;
+      case 5:
+        if (mug5 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setMug3(mugFull);
+          setMug4(mugFull);
+          setMug5(mugFull);
+          setStar(id);
+        }
+        break;
+      // code block
+
+      default:
+      // code block
+    }
+  };
 
 
-function Stars() {
-  
+  useEffect(() => {
+
+    StarClick(props.star)
+    }, []);
 
   return (
     <Wrapper>
-      <div className='mugs'>
-        <img src={mug} className='mug' alt="glass" />
-        <img src={mug} className='mug' alt="glass" />
-        <img src={mug} className='mug' alt="glass" />
-        <img src={mug} className='mug' alt="glass" />
-        <img src={mug} className='mug' alt="glass" />
+      <div className="mugs">
+        <img src={mug1} className="mug" alt="glass" onClick={() => StarClick(1)}/>
+        <img src={mug2} className="mug" alt="glass" onClick={() => StarClick(2)}/>
+        <img src={mug3} className="mug" alt="glass" onClick={() => StarClick(3)}/>
+        <img src={mug4} className="mug" alt="glass" onClick={() => StarClick(4)}/>
+        <img src={mug5} className="mug" alt="glass" onClick={() => StarClick(5)}/>
       </div>
     </Wrapper>
+  );
 
-  )
+
 }
 
 const Wrapper = styled.main`
-.mugs {
-  display: flex;
-  
-}
+  .mugs {
+    display: flex;
+  }
 
-.mug {
-  width: 50px;
-  height: 65px;
-  cursor: pointer;
-  margin: 1px 4px;
-}
-`
-          
-  export default Stars
+  .mug {
+    width: 50px;
+    height: 65px;
+    cursor: pointer;
+    margin: 1px 4px;
+  }
 
+`;
 
+export default Stars;
 
-
-
-  // if (x === '0') {
-  //   return  <img className="mugs" src="/iconmug/00mugs.png" alt="List"/>
-  // } 
-  // if (x === '1') {
-  //   return  <img className="mugs" src="/iconmug/01mugs.png" alt="List"/>
-  // }
-  // if (x === '2') {
-  //   return  <img className="mugs" src="/iconmug/02mugs.png" alt="List"/>
-  // }
-  // if (x === '3') {
-  //   return  <img className="mugs" src="/iconmug/03mugs.png" alt="List"/>
-  // }
-  // if (x === '4') {
-  //   return  <img className="mugs" src="/iconmug/04mugs.png" alt="List"/>
-  // }
-  // if (x === '5') {
-  //   return  <img className="mugs" src="/iconmug/05mugs.png" alt="List"/>
-  // }
