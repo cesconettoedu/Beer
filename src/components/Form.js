@@ -29,7 +29,6 @@ function Form(props) {
       image,
       note,
       star
-      
     }
     
     if(editBreja){
@@ -37,7 +36,7 @@ function Form(props) {
         axios.put(`http://localhost:8080/api/beers/${props.id}`,body
         )
           .then((res) => {
-            getBeer()
+            getBeer(id)
             navigate('/all')
           })
       } catch (err) {

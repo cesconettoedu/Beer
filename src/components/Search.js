@@ -43,9 +43,8 @@ function Search() {
           {searchData.length > 0 &&
             searchData.map((breja) => {
               return(
-              <div className="flex-item">   
+              <div className="flex-item" key={breja.id} >   
               <Card
-                key={breja.id} 
                 id={breja.id}
                 name={breja.name} 
                 image={breja.image}
