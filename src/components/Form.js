@@ -17,6 +17,10 @@ function Form(props) {
   let beerId = useParams()
   const id = beerId.id 
 
+  const handleCallback = (starChildren) => {
+    setStar(starChildren);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const body = {
@@ -27,7 +31,7 @@ function Form(props) {
       star
       
     }
-    console.log(Stars.star);  
+    
     if(editBreja){
       try {
         axios.put(`http://localhost:8080/api/beers/${props.id}`,body
@@ -112,7 +116,7 @@ function Form(props) {
               
           <div className="beercard-like" > 
             <Stars star={beer.star}
-              
+              formCallback={handleCallback}
             />
           </div> 
         </div>

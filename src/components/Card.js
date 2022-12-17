@@ -38,7 +38,9 @@ function Card({ id, name, image, note, star }) {
             </div>  
                 
             <div className='beercard-like' > 
-              <Stars star={star}/>
+              <Stars star={star}
+                formCallback={null}
+              />
             </div> 
           </div>
         </div>
