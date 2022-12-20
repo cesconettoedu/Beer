@@ -13,7 +13,8 @@ function AddBeer() {
     <br/>
     <h1 className='title'>Add Beers</h1>
     <br/>
-    <Form edit={false}/>
+    <Form edit={false}
+    />
     </Wrapper>
   </main>
   )

@@ -38,7 +38,7 @@ function Search() {
 
   return (
     <Wrapper>
-      <div className='box'>
+      <div className='grup'>
         <div className="parent-flex">
           {searchData.length > 0 &&
             searchData.map((breja) => {
@@ -89,28 +89,16 @@ input{
   background: var(--clr-primary-400);
 }
 
-.box{
+.grup{
+  margin-right: 20%;
   margin-left: 20%;
-  width: 49vh;
   padding: 7px;
 }
  
 .parent-flex {
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
-width: 160%;
-justify-content: space-around;
-padding-bottom: 25%;
+width: 107%;
 }
-
-.flex-item {
-  height: 29rem;
-  flex: 0 0 135px;
-  margin: 1em -10px;
-  text-align: center;
- }
- 
-
 `
 export default Search
