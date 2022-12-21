@@ -24,7 +24,7 @@ const useProvideBeerContext = () => {
   ///////////////////to get all beers
   async function listAllBeers() {
     try {
-      const res = await axios.get(`http://localhost:8080/api/beers/all`);
+      const res = await axios.get(`/api/beers/all`);
       setBeers(res.data);
     } catch (err) {
       console.error(err.message);
@@ -35,7 +35,7 @@ const useProvideBeerContext = () => {
   ////////////////////get single beer
   async function getBeer(id) {
     try {
-    const result = await axios.get(`http://localhost:8080/api/beers/${id}`)
+    const result = await axios.get(`/api/beers/${id}`)
     setBeer(result.data[0])
     } catch (err) {
     console.error(err.message);
@@ -48,7 +48,7 @@ const useProvideBeerContext = () => {
   const deleteBeer = async (id) => {
     const choice = window.confirm("Are you sure you want to delete this BEER ?")
     if (choice) {
-      await axios.delete(`http://localhost:8080/api/beers/${id}`, {
+      await axios.delete(`/api/beers/${id}`, {
       });
     }
   }
