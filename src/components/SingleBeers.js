@@ -20,7 +20,7 @@ function SingleBeers(props) {
   function toggleDelete(id) {
     deleteBeer(id)
     listAllBeers()
-    navigate('/all', {replace:true})
+    navigate('/all', {replace:true}) //{replace:true} to not load the beer deleted in all pages when returns to page
   }
   const toggleEdit = (id) => {
     setEditBreja(true);
@@ -50,7 +50,7 @@ function SingleBeers(props) {
           image={beer.image}
           note={beer.note}
           star={beer.star}
-          
+
         />
         <div className='options'>
           <BsTrash className='icon' onClick={() => toggleDelete(id) }/>
