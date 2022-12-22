@@ -20,7 +20,7 @@ function SingleBeers(props) {
   function toggleDelete(id) {
     deleteBeer(id)
     listAllBeers()
-    navigate('/all')
+    navigate('/all', {replace:true})
   }
   const toggleEdit = (id) => {
     setEditBreja(true);
@@ -50,6 +50,7 @@ function SingleBeers(props) {
           image={beer.image}
           note={beer.note}
           star={beer.star}
+          
         />
         <div className='options'>
           <BsTrash className='icon' onClick={() => toggleDelete(id) }/>
