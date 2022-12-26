@@ -92,6 +92,7 @@ input{
 .grup{
   margin-right: 20%;
   margin-left: 20%;
+  margin-bottom: 4%;
   padding: 7px;
 }
  
