@@ -33,7 +33,7 @@ function Search() {
   useEffect(() => {
     AllBeers('')
 
-  }, [])
+  }, [searchData.length])
 
 
   return (
