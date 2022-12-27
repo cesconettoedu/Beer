@@ -100,6 +100,7 @@ input{
 display: flex;
 flex-wrap: wrap;
 width: 107%;
+justify-content: center;
 }
 `
 export default Search
