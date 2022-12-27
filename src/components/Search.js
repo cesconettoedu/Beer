@@ -101,6 +101,7 @@ display: flex;
 flex-wrap: wrap;
 width: 107%;
 justify-content: center;
+margin-top: 1vh;
 }
 `
 export default Search

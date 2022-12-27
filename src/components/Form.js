@@ -136,7 +136,8 @@ const Wrapper = styled.main`
   align-items: center;
   justify-self: center;
   overflow: hidden;
-  justify-content: center
+  justify-content: center;
+  margin-top: 13.4vh;
 }
 
 .beerCard {

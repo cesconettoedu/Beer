@@ -44,9 +44,11 @@ const Wrapper = styled.main`
   perspective: 30rem;
   perspective-origin: 30% 60%;
   text-align: -webkit-center;
+  
 }
 
 .div-transform {
+  margin-top: 54%;
   display: flex;
   align-items: center;
   transform: rotateX(10deg) rotateY(15deg) rotateZ(-9deg) scale3d(1, 1, -0.9)
