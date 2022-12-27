@@ -12,6 +12,7 @@ function AllBeers(props) {
   useEffect(() => {
     listAllBeers()
     
+    
   }, [])
   
  

@@ -20,7 +20,8 @@ function SingleBeers(props) {
   function toggleDelete(id) {
     deleteBeer(id)
     listAllBeers()
-    navigate('/all', {replace:true}) //{replace:true} to not load the beer deleted in all pages when returns to page
+    navigate('/all')
+    window.location.reload() //to not load the beer deleted in all pages when returns to page
   }
   const toggleEdit = (id) => {
     setEditBreja(true);
